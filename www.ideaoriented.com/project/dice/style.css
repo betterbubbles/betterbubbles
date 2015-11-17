@@ -1,0 +1,597 @@
+html {
+  box-sizing: border-box;
+  min-width:768px;
+}
+
+#recaptcha-target {
+  margin-top:10px;
+  float:left;
+}
+
+body {
+  overflow-x: hidden;
+  margin-top: 20px;
+  color: #ddd;
+  background: #000 url(img/bubblesbitbg2.jpg) no-repeat top center;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+@media screen and (max-width: 1120px) {
+.col-gold-lg {
+  width:100%;
+}
+.col-gold-sm {
+  width:50%;
+}
+#chat-box {
+  margin-top: 20px;
+}
+.col-md-4 {
+  width:30%;
+  padding:0px;
+  clear:both;
+}
+}
+
+@media screen and (min-width: 1121px) {
+.col-gold-sm {
+  width:38.1953%;
+}
+#chat-box {
+  margin-top: 0px;
+}
+}
+
+.debris {
+ display: none;   
+ position: absolute;
+ width: 28px;
+ height: 28px;
+ opacity: 1.0;
+ overflow: hidden;
+ border-radius: 8px;
+}
+
+#numberRolled {
+  display:block;
+  color:white;
+  font-size:20px;
+}
+
+#toggle-button {
+  background-color: rgb(0, 85, 149);
+  background-image: none;
+  border: none;
+  color: #ddd;
+  text-shadow: none;
+}
+
+#wager-panel {
+  margin-top:-175px;
+}
+
+#multiplier-panel {
+  margin-top:-280px;
+}
+
+#detail-panel {
+  margin-top: -215px;
+}
+
+#autobet-panel {
+  float: right;
+  margin-top: -229px;
+}
+
+#buttonsrow {
+  text-align:center;
+  margin-top:-40px;
+  width:100%;
+}
+
+#buttonsrow2 {
+  text-align:center;
+  width:100%;
+}
+
+.BetButtons {
+  width:50px;
+  height:50px;
+  border-radius:50%;
+  color:black;
+  font-weight:600;
+  line-height: 16px;
+}
+
+#greenbutton {
+  background-image: url("../../bubblesbit.com/img/greenbubble.png");
+  background-size: cover;
+  opacity: 0.5;
+}
+
+#yellowbutton {
+  background-image: url("../../bubblesbit.com/img/yellowbubble.png");
+  background-size: cover;
+  opacity: 0.5;
+}
+
+#redbutton {
+  background-image: url("../../bubblesbit.com/img/redbubble.png");
+  background-size: cover;
+  opacity: 0.5;
+}
+
+#blankbutton {
+  background:none;
+  border:none;
+/*  opacity: 0.5;*/
+}
+
+#app {
+  margin-top:-21px;
+}
+
+#content {
+  width:600px;
+  height:400px;
+  position:absolute;
+  margin-top:100px;
+  left:50%;
+  margin-left:-300px;
+  background:none;
+}
+
+canvas {
+  position:absolute;
+  margin-top:50px;
+  left:50%;
+  margin-left:-300px;
+  background: url(img/canvasbg.png) no-repeat top center;
+}
+
+#bubble-board {
+  background: url(img/PipesImage2.png) center no-repeat;
+}
+
+.bet-board {
+  position:absolute;
+  margin-top: 580px;
+  left: 50%;
+  margin-left:-256.5px;
+}
+
+.bubble {
+  height: 500px;
+}
+
+#powered {
+  clear:both;
+}
+
+.navbar {
+  border: none !important;
+  float: right;
+  background:none;
+  width:100%;
+}
+
+.navbar .navbar-brand {
+    color: #ddd;
+}
+.navbar .brand-name:hover {
+    text-decoration: underline;
+}
+
+/* ChatBox */
+
+.chat-list {
+    overflow-y: scroll;
+    height: 215px;
+    word-wrap: break-word;
+}
+
+.chat-list li {
+    /* Since .focus() is used to scroll to last message item,
+       turn off the outline that appears by default */
+    outline: none;
+}
+
+/* SCROLLBAR */
+
+::-webkit-scrollbar {
+  width: 15px;
+  height: 15px;
+  background: rgba(0,0,0,0.2);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(0, 85, 149);
+  border-radius: 0px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(0, 85, 149);
+}
+::-webkit-scrollbar-thumb:active {
+  background: rgb(0, 85, 149);
+}
+
+::-webkit-scrollbar-corner {
+  background: rgba(0,0,0,0.2);
+}
+
+::-webkit-resizer {
+  background: rgba(0,0,0,0.2);
+}
+/* Animation */
+
+.rotate {
+    display: inline-block;
+    -webkit-animation-name: rotate;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    -moz-animation-name: rotate;
+    -moz-animation-duration: 2s;
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-timing-function: linear;
+    -o-animation-name: rotate;
+    -o-animation-duration: 2s;
+    -o-animation-iteration-count: infinite;
+    -o-animation-timing-function: linear;
+    animation-name: rotate;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+@-webkit-keyframes rotate {
+    from {-webkit-transform: rotate(0deg);}
+    to {-webkit-transform: rotate(360deg);}
+}
+
+@-moz-keyframes rotate {
+    from {-moz-transform: rotate(0deg);}
+    to {-moz-transform: rotate(360deg);}
+}
+
+@-o-keyframes rotate {
+    from {-moz-transform: rotate(0deg);}
+    to {-moz-transform: rotate(360deg);}
+}
+
+@keyframes rotate {
+    from {transform: rotate(0deg);}
+    to {transform: rotate(360deg);}
+}
+
+.panel, .table {
+  background-color: rgba(0,0,0,0.2);
+  border: 1px solid rgb(0, 85, 149);
+  color: #ddd;
+}
+
+.panel-default>.panel-heading {
+  color: #ddd;
+  background: rgb(0, 85, 149) !important;
+  border: none;
+}
+
+.panel-footer {
+  background-color: rgba(0,0,0,0.0);
+  border: none !important;
+}
+
+.left-bubbles {
+  position:absolute;
+  bottom: -150px;
+  left:20%;
+}
+
+.middle-bubbles {
+  position:absolute;
+  bottom: -400px;
+  left:50%;
+}
+
+.right-bubbles {
+  position:absolute;
+  bottom: -250px;
+  left:90%;
+}
+
+.form-control {
+  background: rgba(0,0,0,0.5);
+  color: #ddd;
+  border: 1px solid rgb(0, 85, 149);
+}
+
+.lead {
+  margin-bottom: 0px !important;
+  display: block;
+}
+
+.bubble-board {
+  position:absolute;
+  margin-top:100px;
+}
+
+div.gbubble {
+  position: absolute;
+  font-size:12px;
+  color:black;
+  width:  26px;
+  height: 26px;
+  border: solid 2px #91C66C;
+  border-radius:50%;
+  content: "";
+  margin-left: 2px;
+  margin-top: -60px;
+  opacity: 0.5;
+}
+
+div.ybubble {
+  position: absolute;
+  width:  26px;
+  height: 26px;
+  border: solid 2px #FFCC33;
+  border-radius:50%;
+  content: url('../../img/ybubble.html');
+  margin-left: 2px;
+  margin-top: -60px;
+  opacity: 0.5;
+}
+
+div.rbubble {
+  position: absolute;
+  width:  26px;
+  height: 26px;
+  border: solid 2px #C46C6C;
+  border-radius:50%;
+  content: url('../../img/rbubble.html');
+  margin-left: 2px;
+  margin-top: -60px;
+  opacity: 0.5;
+}
+
+.green-button {
+  background: rgba(51, 153, 0, 0.75);
+  color: #000;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin:1.5px;
+}
+
+.yellow-button {
+  background: rgba(255, 205, 0, 0.75);
+  color: #000;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin:1.5px;
+}
+
+.red-button {
+  background: rgba(204, 0, 0, 0.75);
+  color: #000;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin:1.5px;
+}
+
+.middle-button {
+  background: none;
+  width: 40px;
+  height: 40px;
+  border: none !important;
+  border-radius: 50%;
+  margin:1.5px;
+}
+
+code {
+  background:none !important;
+  color:rgba(51, 153, 0, 0.95);
+}
+
+.label-primary {
+  background-color: #78E4F0;
+  color: black;
+}
+
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
+  background-color: #005595;
+  border: 1px solid #005595;
+  color:#ddd;
+}
+
+.nav-tabs>li>a:hover {
+  background-color: #005595;
+  border: 1px solid #005595;
+  color:#ddd;
+}
+
+.nav-tabs {
+  border:none !important;
+}
+
+.table>thead>tr>th {
+  border:none !important;
+}
+
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+  border-top:none !important;
+}
+
+.table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
+  border-top:none !important;
+}
+
+thead {
+  border: 1px solid rgb(0, 85, 149);
+}
+
+/* Add this attribute to the element that needs a tooltip */
+[data-tooltip] {
+  position: relative;
+  z-index: 2;
+  cursor: pointer;
+}
+
+/* Hide the tooltip content by default */
+[data-tooltip]:before,
+[data-tooltip]:after {
+  visibility: hidden;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Position tooltip above the element */
+[data-tooltip]:before {
+  position: absolute;
+  top: 55px;
+  left: 50%;
+  margin-bottom: 5px;
+  margin-left: -50px;
+  padding: 7px;
+  width: 100px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #000;
+  color: #fff;
+  content: attr(data-tooltip);
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+/* Triangle hack to make tooltip look like a speech bubble */
+[data-tooltip]:after {
+  position: absolute;
+  top: 50px;
+  left: 50%;
+  margin-left: -5px;
+  width: 0;
+  border-bottom: 5px solid #000;
+  border-right: 5px solid transparent;
+  border-left: 5px solid transparent;
+  content: " ";
+  font-size: 0;
+  line-height: 0;
+}
+
+/* Show tooltip content on hover */
+[data-tooltip]:hover:before,
+[data-tooltip]:hover:after {
+  visibility: visible;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=100);
+  opacity: 1;
+}
+
+.modal-box {
+  z-index: 99999;
+}
+.modal-box__overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  visibility: hidden;
+  opacity: 0;
+  background: rgba(0, 0, 0, 0.8);
+  -webkit-transition: opacity 0.1s ease-in;
+  -moz-transition: opacity 0.1s ease-in;
+  transition: opacity 0.1s ease-in;
+  cursor: default;
+}
+.modal-box__content {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  width: 800px;
+  padding: 20px;
+  background: #ffffff;
+  color: #333;
+  opacity: 0;
+}
+.modal-box:target .modal-box__overlay, .modal-box:target .modal-box__content {
+  opacity: 1;
+  visibility: visible;
+}
+.modal-box--close {
+  background: rgb(0, 85, 149);
+  color: #ffffff;
+  height: 30px;
+  line-height: 30px;
+  position: absolute;
+  right: -15px;
+  top: -15px;
+  padding: 0 10px;
+}
+
+@-webkit-keyframes change-color {
+  0% { color: black; }
+  80% { color: black; }
+}
+@-moz-keyframes change-color {
+  0% { color: black; }
+  80% { color: black; }
+}
+@-o-keyframes change-color {
+  0% { color: black; }
+  80% { color: black; }
+}
+@keyframes change-color {
+  0% { color: black; }
+  80% { color: black; }
+}
+
+#outcome, #profit {
+  -webkit-animation: change-color 3s; /* Safari 4+ */
+  -moz-animation:    change-color 3s; /* Fx 5+ */
+  -o-animation:      change-color 3s; /* Opera 12+ */
+  animation:         change-color 3s; /* IE 10+ */
+}
+
+@keyframes pop {
+  to {
+    height: 50px;
+    width: 50px;
+    margin-top: -100px;
+    margin-left: -100px;
+    opacity: 0;
+  }
+}
+
+.bubblebg {
+  width: 0px;
+  height: 0px;
+  opacity: 1;
+  position: absolute;
+  animation-name: pop;
+  animation-duration: 10s;
+  animation-iteration-count: 1;
+  border-radius: 500px;
+  -moz-border-radius: 500px;
+  -webkit-border-radius: 500px;
+  transform: translateZ(0);
+  animation-fill-mode: forwards;
+}
+
+kbd {
+  background: black;
+  color: white;
+  font-size: 11px;
+  display: inline-block;
+}
